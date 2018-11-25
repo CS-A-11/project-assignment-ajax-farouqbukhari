@@ -6,12 +6,10 @@ $(document).ready(function(){
 		type: 'GET',
         dataType: 'json',
         contentType: 'json',
-		beforeSend: function(){
-			$("#searchProds").css("background","#FFF url(images/LoaderIcon.gif) no-repeat 200px");
-		},
 		success: function(data){
+            console.log("Success");
+            $("#suggesstion-box").css("display","block");
             console.log(data);
-			$("#suggesstion-box").show();
 			$("#suggesstion-box").html(data);
 			$("#searchProds").css("background","#FFF");
         },
@@ -27,7 +25,7 @@ $(document).ready(function(){
     });
 });
 //To select Product name
-function selectProduct(val) {
-$("#searchProds").val(val);
-$("#suggesstion-box").hide();
-}
+//function selectProduct(val) {
+//$("#searchProds").val(val);
+//$("#suggesstion-box").hide();
+//}

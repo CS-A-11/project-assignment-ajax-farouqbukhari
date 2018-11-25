@@ -18,7 +18,7 @@ module.exports.checkemail = function(req, res){
 
 module.exports.searchAutocomplete = function(req, res){
   console.log(req.params.title);
-  Product.find({"title": new RegExp('*'+req.params.title+'*', "i")}, function(err , docs){
+  Product.find({'title': { '$regex' : req.params.title , '$options' : 'i' }}, function(err , docs){
     if(err){
       res.json({"err": err});
       return;

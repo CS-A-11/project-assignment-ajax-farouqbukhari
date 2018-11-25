@@ -38,7 +38,7 @@ Nested Collections: Cart, Reviews
 products has nested reviews.
 Orders has nested Cart.
 
-#AJAX
+# AJAX:
 Remote Email Validation
 Search Auto-Completion
 Remaining Work: Dynamic Content Inject.

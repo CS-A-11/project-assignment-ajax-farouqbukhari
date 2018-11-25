@@ -39,8 +39,9 @@ products has nested reviews.
 Orders has nested Cart.
 
 # AJAX:
-Remote Email Validation
-Search Auto-Completion
+1. Remote Email Validation
+2. Search Auto-Completion
+
 Remaining Work: Dynamic Content Inject.
 
 # Contribution:

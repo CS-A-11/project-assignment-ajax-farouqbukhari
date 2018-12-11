@@ -19,12 +19,16 @@ module.exports.products = function(req, res, next) {
           for(var i = 0; i < products.length ; i+=chunkSize){
             ProductChunk.push(products.slice(i, i+chunkSize));
           }
-          res.render('shop/productByCategory', {title: 'Techifier Kart' , products: ProductChunk, category: category});
+          res.send(ProductChunk);
         });
       } else{
         res.json({"message" : "No category in request"});
         }
     
+};
+
+module.exports.categories = function(req, res, next) {
+  res.render('shop/productByCategory', {});
 };
 
 module.exports.deleteReview = function(req, res, next) {
@@ -97,7 +101,7 @@ module.exports.editReviewPage = function(req, res, next) {
               return;
             }
             else{
-              res.render('shop/editReview', {product: product, csrfToken: req.csrfToken(), review: thisReview});
+              res.render('shop/editReview', {product: product, review: thisReview});
             }
             
           }
@@ -179,7 +183,7 @@ module.exports.productsaddreview = function(req, res, next) {
           }
           else{
             doAddReview(req,res,product);
-            return next();
+            res.redirect('/product/view/'+product._id);
           }
         });
       } else{
@@ -257,7 +261,7 @@ module.exports.productsreadone = function(req, res){
           reviews = product.reviews;
           haveReviews = 1;
         }
-        res.render('shop/products',{product:product , haveSpecs: haveSpecs , specs:specs , haveReviews , reviews: reviews, csrfToken: req.csrfToken(), req: req});
+        res.render('shop/products',{product:product , haveSpecs: haveSpecs , specs:specs , haveReviews , reviews: reviews , req: req});
       });
     } else{
       res.json({"message" : "No productid in request"});

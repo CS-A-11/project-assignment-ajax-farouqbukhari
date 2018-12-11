@@ -28,6 +28,7 @@ router.get('/remove/:id',ctrladdcart.removeAllcart);
 /* GET shoppingcart req. */
 router.get('/shopping-cart',ctrlshoppingcart.shoppingcart);
 /* Get Product by category*/ 
+router.get('/categories',ctrlproducts.categories);
 router.get('/product/:category',ctrlproducts.products);
 /* Get Single Product View*/ 
 router.get('/product/view/:productid',ctrlproducts.productsreadone);

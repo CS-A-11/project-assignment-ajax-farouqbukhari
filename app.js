@@ -33,6 +33,9 @@ require('./app_server/config/passport');
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server','views'));
 app.set('view engine', 'pug');
+if (app.get('env') === 'development') {
+  app.locals.pretty = true;
+}
 
 app.use(logger('dev'));
 app.use(express.json());

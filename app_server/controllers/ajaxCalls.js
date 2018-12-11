@@ -24,10 +24,10 @@ module.exports.searchAutocomplete = function(req, res){
       return;
     }
     var ProductChunk = [];
-    for(var i = 0; i < 4 ; i++){
+    for(var i = 0; i < docs.length ; i++){
       ProductChunk.push(docs[i]);
     }
-    res.json({"products": ProductChunk});
+    res.send(ProductChunk);
     return;
   });
 };

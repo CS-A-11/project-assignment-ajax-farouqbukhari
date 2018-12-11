@@ -422,4 +422,18 @@ div.section > div > input {
   .outline-danger:hover{
       border: 3px solid #D83D5A;
   }
+  .searchBar{
+    position:absolute;
+    top: 0px;
+  }
+
+  #sub_navlist {
+    position: absolute;
+    width: auto;
+    text-align: left;
+    z-index: 100;
+  }
+  #sub_navlist li {
+    padding: 5px 0;
+  }
 

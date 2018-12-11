@@ -1,5 +1,5 @@
 doctype html
-html(lang='en')
+html(lang='en', ng-app="techifierKart")
   head
     title TechifierKart - A Computer Parts Store
     // for-mobile-apps 
@@ -15,6 +15,7 @@ html(lang='en')
     script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
   body
     script(type='text/javascript', src='/js/bootstrap.min.js')
+    script(src ="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js")
     include partials/header.pug
     block content
     include partials/footer.pug

@@ -8,18 +8,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         a.nav-link(href='/')
           i.fas.fa-home|  Home
           span.sr-only (current)
-      li.nav-item.dropdown
-        a.nav-link.dropdown-toggle#navbarDropdown(href='/', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') 
-          i.fas.fa-cart-arrow-down|  Products
-        .dropdown-menu(aria-labelledby='navbarDropdown')
-          a.dropdown-item(href='/product/GamingPeriphirels') Gaming Periphirels
-          .dropdown-divider
-          a.dropdown-item(href='/product/Processors&MotherBoards') Processors & MotherBoards
-          a.dropdown-item(href='/product/GraphicCards') Graphic Cards
-          a.dropdown-item(href='/product/StorageDevices') Storage Devices
-          a.dropdown-item(href='/product/MemorySticks') Memory Sticks
-          a.dropdown-item(href='/product/CoolingAccessories') Cooling Accessories
-          a.dropdown-item(href='/product/PowerSupplies') Power Supplies
+      li.nav-item
+        a.nav-link#navbarDropdown(href='/categories') 
+          i.fa.fa-list-alt|  Categories
       li.nav-item
         a.nav-link(href='/about')
           i.fas.fa-users|  About Us
@@ -48,10 +39,13 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
               a.dropdown-item(href='/user/signup') Sign Up
               .dropdown-divider
               a.dropdown-item(href='/user/signin') Sign In
+  .searchBar(ng-controller="autocomplete",style="position: relative")
+    input.outline-danger(type="text",id="searchProds",name="searchProds",placeholder="Search",ng-model="searchProds", ng-keyup="complete(searchProds)") 
+    ul.list-group.searchResults(ng-model="hideinfo",ng-hide="hideinfo",id="sub_navlist")
+      li.list-group-item(ng-repeat="productinfo in search_product", ng-click="choose_textbox(productinfo.title)")
+        a(href='/product/view/{{productinfo._id}}', role='button', class="text-danger") {{productinfo.title}}
 
-    .form-inline.my-2.my-lg-0
-      label(for="searchProds") 
-      input.outline-danger(type="text",id="searchProds",placeholder="Search") 
-      #suggesstion-box
+script(src="/js/searchResults.js")
+script(src="/js/searchBarstyling.js")
         
     

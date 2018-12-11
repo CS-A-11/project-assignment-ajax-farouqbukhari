@@ -14,7 +14,12 @@ $('document').ready(function(){
         contentType:'json',
         success: function(response){
           console.log(response);
-            if (response.message == 'taken' ) {
+            if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))){
+              $('#email').parent().removeClass();
+              $('#email').parent().addClass("form_error");
+              $('#email').siblings("span").text('');
+            }
+            else if (response.message == 'taken' ) {
             $('#email').parent().removeClass();
             $('#email').parent().addClass("form_error");
             $('#email').siblings("span").text('Sorry... Email already taken');

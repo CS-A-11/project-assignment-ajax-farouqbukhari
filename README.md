@@ -33,10 +33,8 @@ Email me at "l164180@lhr.nu.edu.pk" for admin account information to test the ad
 (https://techifierkart.herokuapp.com/product/view/5be70579687c3000157e47c5) Go to write review tab.
 
 # Schema:
-Collections: Products , Users, Orders , Sessions
-Nested Collections: Cart, Reviews
-products has nested reviews.
-Orders has nested Cart.
+1. Collections: Products , Users, Orders , Sessions
+2. Nested Collections: Cart, Reviews (Products has nested reviews,Orders has nested Cart).
 
 # Ajax & AngularJs:
 1. Remote Email Validation(Format and Availablility)

@@ -39,9 +39,9 @@ products has nested reviews.
 Orders has nested Cart.
 
 # Ajax & AngularJs:
-Remote Email Validation(Format and Availablility)
-Search AutoComplete
-Dynamic Products Injection according to category
+1. Remote Email Validation(Format and Availablility)
+2. Search AutoComplete
+3. Dynamic Products Injection according to category
 
 # Contribution:
 Farooq Shah:

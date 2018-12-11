@@ -38,6 +38,11 @@ Nested Collections: Cart, Reviews
 products has nested reviews.
 Orders has nested Cart.
 
+# Ajax & AngularJs:
+Remote Email Validation(Format and Availablility)
+Search AutoComplete
+Dynamic Products Injection according to category
+
 # Contribution:
 Farooq Shah:
 1. Wrote the code for both front-end and back-end.
@@ -47,6 +52,7 @@ Farooq Shah:
 5. Implemented Stripe Payment Method through Credit Cards when user checks out.
 6. Protected User and Admin Specific Routes, to not be accessed without their respective login.
 7. Implemented Cart Storage into Session until User Checksout or his/her session expires.
+8. Implemented AJAX and AngularJs
 
 Rouel Shafi:
 1. Implemented Use Case For User.

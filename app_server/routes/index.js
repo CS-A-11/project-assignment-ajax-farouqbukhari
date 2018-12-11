@@ -33,7 +33,7 @@ router.get('/product/:category',ctrlproducts.products);
 /* Get Single Product View*/ 
 router.get('/product/view/:productid',ctrlproducts.productsreadone);
 /* Post Single Product Review*/ 
-router.post('/product/view/:productid/review',isLoggedin,ctrlproducts.productsaddreview/*, ctrlproducts.updateRating*/);
+router.post('/product/view/:productid/review',isLoggedin,ctrlproducts.productsaddreview);
 /* Get Edit Review View*/ 
 router.get('/product/:productid/review/edit/:reviewid',isLoggedin,ctrlproducts.editReviewPage);
 /* Post Edit Review*/ 

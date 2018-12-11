@@ -37,7 +37,6 @@ Collections: Products , Users, Orders , Sessions
 Nested Collections: Cart, Reviews
 products has nested reviews.
 Orders has nested Cart.
-
 # Ajax & AngularJs:
 Remote Email Validation(Format and Availablility)
 Search AutoComplete
@@ -53,7 +52,6 @@ Farooq Shah:
 6. Protected User and Admin Specific Routes, to not be accessed without their respective login.
 7. Implemented Cart Storage into Session until User Checksout or his/her session expires.
 8. Implemented AJAX and AngularJs
-
 Rouel Shafi:
 1. Implemented Use Case For User.
 2. Product Scraping through Python Scripting.

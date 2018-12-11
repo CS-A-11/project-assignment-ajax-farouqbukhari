@@ -53,6 +53,16 @@ module.exports.deleteReview = function(req, res, next) {
               return;
             }
             else{
+              var currentRating = 0;
+              product.reviews.forEach(element => {
+                  currentRating = currentRating + element.rating;
+              });
+              console.log(thisReview);
+              currentRating = currentRating - thisReview.rating;
+              if((product.reviews.length)-1 != 0){
+                product.rating = currentRating/((product.reviews.length)-1);
+                console.log(product.rating);
+              }
               product.reviews.id(req.params.reviewid).remove();
               product.save(function(err,product){
                 if(err){
@@ -140,6 +150,13 @@ module.exports.editReview = function(req, res, next) {
               return;
             }
             else{
+              var currentRating = 0;
+              product.reviews.forEach(element => {
+                currentRating = currentRating + element.rating;
+              });
+              currentRating -= (thisReview.rating);
+              currentRating += parseInt(req.body.starRating);
+              product.rating = currentRating/(product.reviews.length);
               thisReview.reviewText = req.body.productReview;
               thisReview.rating = req.body.starRating;
               product.save(function(err,product){
@@ -201,39 +218,6 @@ module.exports.productsaddreview = function(req, res, next) {
   
 };
 
-module.exports.updateRating = function(req, res, next) {
-  if(req.user != null ){
-    if(req.params && req.params.productid) {
-      Pro
-        .findById(req.params.productid)
-        .exec(function(err,product) {
-          if(!product){
-            res.json({"message" : "productid not found"});
-            return;
-          }
-          else if (err){
-            res.json({"message" : "productid not found"});
-            return;
-          }
-          else{
-            updateAverageRating(req,res,product,req.body.starRating,1,false,next);
-          }
-        });
-      } else{
-        res.json({"message" : "No productid in request"});
-        return;
-        }
-  }
-  else{
-    console.log(req.user);
-    var messages = [];
-    messages.push("Login First then proceed to writing a review");
-    req.flash('error' , messages);
-    res.redirect('/user/signin');
-  }
-  
-};
-
 module.exports.productsreadone = function(req, res){
   if(req.params && req.params.productid) {
     Pro
@@ -276,6 +260,11 @@ module.exports.productsreadone = function(req, res){
       rating: req.body.starRating,
       reviewText: req.body.productReview
     });
+    var currentRating = 0;
+    product.reviews.forEach(element => {
+      currentRating = currentRating + element.rating;
+    });
+    product.rating = currentRating/(product.reviews.length);
     product.save(function(err,product){
       if(err){
         res.json({"error": "Error adding Review"});
@@ -283,39 +272,5 @@ module.exports.productsreadone = function(req, res){
       }
       return;
     });
-  };
-  var updateAverageRating = function(req,res,product, userRating , check , flag, next){
-        var currentRating = 0;
-        if(product.reviews.length > 0)
-        {
-          for(review in product.reviews){
-            currentRating += review.rating;
-          } 
-          
-          if(flag == true){
-            currentRating -= userRating;
-          }
-          else{
-            currentRating += userRating;
-          }
-          //for edit review only
-          if(check == 0){
-            currentRating -= (userRating*2);
-            currentRating += req.body.starRating;
-          }
-          product.rating = currentRating/(product.reviews.length+check);
-        }
-        else{
-          product.rating = userRating;
-        }
-        console.log(product._id);
-        product.save(function(err,product){
-          if(err){
-            res.json({"error": "Error updating Rating"});
-            return;
-          }
-        });
-        res.redirect('/product/view/'+product._id);
-        return next();
   };
   

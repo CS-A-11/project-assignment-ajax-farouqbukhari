@@ -51,9 +51,11 @@ Farooq Shah:
 6. Protected User and Admin Specific Routes, to not be accessed without their respective login.
 7. Implemented Cart Storage into Session until User Checksout or his/her session expires.
 8. Implemented AJAX and AngularJs
+
 Rouel Shafi:
 1. Implemented Use Case For User.
 2. Product Scraping through Python Scripting.
+3. Updating product average rating after a user gives, edits or deletes a review.
 
 Sajjad Zaidi:
 1. Designed and coded the views.
@@ -64,7 +66,6 @@ Fawad Omer:
 2. Designed the Schema.
 
 # Future Work
-1. Updating product average rating after a user gives a review.
-2. Deducting product quantity from the store when it is bought.
+1. Deducting product quantity from the store when it is bought.
 
 

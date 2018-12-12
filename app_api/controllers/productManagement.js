@@ -66,7 +66,7 @@ module.exports.addProduct = function(req, res, next) {
             if (err){
                 res.send(err);
             }
-            res.json({"message": "Successfully Added" , "product" : product});
+            res.redirect('/admin/panel');
         });
     }
     
@@ -137,7 +137,7 @@ var deleteProduct = function(req , res , productId){
             if(err){
                 res.send(err);
             }
-        res.json({"message": "Successfully Deleted"});
+        res.redirect('/admin/panel');
         });
     }
     else{
@@ -214,7 +214,7 @@ var updateProduct = function(req , res , productId){
                     if(err){
                         res.send(err);
                     }
-                    res.json({"message": "Successfully Updated"});
+                    res.redirect('/admin/panel');
                 });
             });
         }

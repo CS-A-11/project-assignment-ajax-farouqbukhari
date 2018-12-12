@@ -6,7 +6,7 @@ module.exports.checkout = function(req, res, next) {
   }
   var cart = new Cart(req.session.cart);
   var errMsg = req.flash('error')[0];
-  res.render('shop/checkout',{products: cart.generateArray(),total: cart.totalPrice ,csrfToken: req.csrfToken(), totalQty: cart.totalQty, errMsg: errMsg , noErrors: !errMsg});
+  res.render('shop/checkout',{products: cart.generateArray(),total: cart.totalPrice , totalQty: cart.totalQty, errMsg: errMsg , noErrors: !errMsg});
   };
 module.exports.checkoutpost = function(req, res, next) {
   if(!req.session.cart){
